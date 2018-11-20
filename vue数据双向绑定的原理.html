@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" name="" id = "user">
+	<span id = users></span>
+	<script type="text/javascript">
+		var obj = {};
+		Object.defineProperty(obj,'user',{
+			get:function(){
+				console.log("get init")
+			},
+			set:function(val){
+				console.log("set init");
+				document.getElementById("user").value = val;
+				document.getElementById("users").innerText = val;
+			}
+		});
+		document.getElementById("user").addEventListener("keyup",function(event){
+			obj.user = event.target.value;
+		})
+	</script>
+</body>
+</html>
